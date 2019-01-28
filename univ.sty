@@ -1,0 +1,46 @@
+% cd ..\..\Users\NikitaSkybytskyi\Desktop\c3s2\tpr
+\documentclass[a4paper, 12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english, ukrainian]{babel}
+
+\usepackage{amsmath, amssymb}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{multicol}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{problem}{Задача}
+\newtheorem*{solution}{Розв'язок}
+
+\allowdisplaybreaks
+\setlength\parindent{0pt}
+\numberwithin{equation}{subsection}
+
+\newcommand{\nothing}{{$\left.\right.$}}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{xcolor}
+\definecolor{processblue}{cmyk}{0.96,0,0,0}
+
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{unicode=true,colorlinks=true,linktoc=all,linkcolor=red}
+
+\numberwithin{equation}{section}% reset equation counter for sections
+\numberwithin{equation}{subsection}
+% Omit `.0` in equation numbers for non-existent subsections.
+\renewcommand*{\theequation}{%
+  \ifnum\value{subsection}=0 %
+    \thesection
+  \else
+    \thesubsection
+  \fi
+  .\arabic{equation}%
+}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\rhead{Нікіта Скибицький, ОМ-3}
