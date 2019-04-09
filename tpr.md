@@ -292,21 +292,21 @@ _Аналітиками_ (консультантами, дослідниками
 	<table>
 		<thead>
 			<tr>
-				<td> </td> <td colspan="3"> $$y_1$$ </td> <td colspan="3"> $$y_2$$ </td> <td colspan="3"> $$y_3$$ </td> <td> $$p$$ </td>
+				<th> </th> <th colspan="3"> $$y_1$$ </th> <th colspan="3"> $$y_2$$ </th> <th colspan="3"> $$y_3$$ </th> <th> $$p$$ </th>
 			</tr>
-		</thead>>
+		</thead>
 		<tbody>
 			<tr>
 				<td> </td> <td> $$f_1$$ </td> <td> $$f_2$$ </td> <td> $$f_3$$ </td> <td> $$f_1$$ </td> <td> $$f_2$$ </td> <td> $$f_3$$ </td> <td> $$f_1$$ </td> <td> $$f_2$$ </td> <td> $$f_3$$ </td> <td> </td>
 			</tr>
 			<tr>
-				<td> $$a_1$$ </td> <td> 4 </td> <td> 5 </td> <td> 4 </td> <td> 3 </td> <td> 5 </td> <td> 3 </td> <td> 2 </td> <td> 4 </td> <td> 2 </td> <td> $$2/7$$ </td>
+				<td> $$a_1$$ </td> <td> $$4$$ </td> <td> $$5$$ </td> <td> $$4$$ </td> <td> $$3$$ </td> <td> $$5$$ </td> <td> $$3$$ </td> <td> $$2$$ </td> <td> $$4$$ </td> <td> $$2$$ </td> <td> $$2/7$$ </td>
 			</tr>
 			<tr>
-				<td> $$a_2$$ </td> <td> 3 </td> <td> 4 </td> <td> 4 </td> <td> 2 </td> <td> 4 </td> <td> 3 </td> <td> 2 </td> <td> 4 </td> <td> 3 </td> <td> $$2/7$$ </td>
+				<td> $$a_2$$ </td> <td> $$3$$ </td> <td> $$4$$ </td> <td> $$4$$ </td> <td> $$2$$ </td> <td> $$4$$ </td> <td> $$3$$ </td> <td> $$2$$ </td> <td> $$4$$ </td> <td> $$3$$ </td> <td> $$2/7$$ </td>
 			</tr>
 			<tr>
-				<td> $$a_2$$ </td> <td> 2 </td> <td> 3 </td> <td> 3 </td> <td> 1 </td> <td> 3 </td> <td> 2 </td> <td> 1 </td> <td> 2 </td> <td> 1 </td> <td> $$3/7$$ </td>
+				<td> $$a_2$$ </td> <td> $$2$$ </td> <td> $$3$$ </td> <td> $$3$$ </td> <td> $$1$$ </td> <td> $$3$$ </td> <td> $$2$$ </td> <td> $$1$$ </td> <td> $$2$$ </td> <td> $$1$$ </td> <td> $$3/7$$ </td>
 			</tr>
 			<tr>
 				<td> $$q$$ </td> <td colspan="3"> $$1/4$$ </td> <td colspan="3"> $$1/4$$ </td> <td colspan="3"> $$1/2$$ </td> <td> </td>
