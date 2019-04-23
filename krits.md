@@ -41,12 +41,30 @@ $$
 У свою чергу шукана альтернатива вибирається з умови
 
 $$
-x^\star \in \arg\min\limits_{x \in x} E_D(x) = \arg\min\limits_{x \in x} \int\limits_{s \in S} p(s) \left( \int\limits_{s' \in S} p(s') f(x, s') \mathrm{d} s' - f(x, s) \right)^2 \mathrm{d} s.
+x^\star \in \arg\min\limits_{x \in x} E_D(x) = \arg\min\limits_{x \in x} \int\limits_{s \in S} p(s) \left( \int\limits_{s' \in S} p(s') f(x, s') \, \mathrm{d} s' - f(x, s) \right)^2 \mathrm{d} s.
 $$
 
 ## Критерій максимізації ймовірності
 
-\[ X^\star = \Argmax_{x \in X} \Int_{s \in S, f(x, s) \ge f_0} p(s) \diff s, \] $f_0$ --- параметр. \medskip
+При використанні цього критерію ОПР фіксує величину оцінки функції корисності наслідків 
+
+$$
+f_0: \min\limits_{x \in X} \min\limits_{s \in S} f(x, s) \le f_0 \le \max\limits_{x \in X} \max\limits_{s \in S} f(x, s),
+$$
+
+яку він хоче ймовірно досягти.
+
+Для кожної альтернативи $$x$$ визначається ймовірність $$p \{ f(x, s) \ge f_0 \}$$ того, що функція корисності наслідків буде не менша за $$f_0$$ для кожного стану середовища $$s \in S$$. Критерій полягає в максимізації ймовірності досягнення значення заданої оцінки
+
+$$
+E_F(x) = \int\limits_{s \in S, f(x, s) \ge f_0} p(s) \, \mathrm{d} s,
+$$
+
+а шукана альтернатива вибирається з умови
+
+$$
+x^\star \in \arg\max\limits_{x \in X} E_F(x) = \arg\max\limits_{x \in X} \int\limits_{s \in S, f(x, s) \ge f_0} p(s) \, \mathrm{d} s.
+$$
 
 ## Модальний критерій
 
