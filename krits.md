@@ -30,12 +30,32 @@ $$
 x^\star \in \arg \max\limits_{x \in X} \int\limits_{s \in S} p(s) f(x, s) \, \mathrm{d} s = \arg \max\limits_{x \in X} \int\limits_{s \in S} p(s) f(x, s) \, \mathrm{d} s.
 $$
 
-Критерій мінімізації дисперсії оцінки: \[ X^\star = \Argmin_{x \in x} \Int_{s \in S} p(s) \left( \Int_{s' \in S} p(s') f(x, s') \diff s' - u(x, s) \right)^2 \diff s. \]
+## Критерій мінімізації дисперсії оцінки
 
-Критерій максимізації ймовірності: \[ X^\star = \Argmax_{x \in X} \Int_{s \in S, f(x, s) \ge f_0} p(s) \diff s, \] $f_0$ --- параметр. \medskip
+Цей критерій використовують, коли ОПР, зацікавлена в отриманні "стійкого" щодо станів середовища рішення і відомо, що ймовірності станів середовища мають нормальний розподіл. При виборі цього критерію кожна альтернатива оцінюється дисперсією функції корисності її наслідків при всіх мінімізованих станах середовища:
 
-Модальний критерій: \[ X^\star = \Argmax_{x \in X} f(x, \Argmax_{s \in S} p(s)). \]
+$$
+E_D(x) = \int\limits_{s \in S} p(s) \left( \int\limits_{s' \in S} p(s') f(x, s') \, \mathrm{d} s' - f(x, s) \right)^2 \mathrm{d} s = \int\limits_{s \in S} p(s) (E_{MM}(x) - f(x, s))^2 \, \mathrm{d} s.
+$$
 
-Критерій Севіджа (S-критерій): \[ X^\star = \Argmin_{x \in X} \max_{s \in S} (\max_{x' \in X} f(x', s) - f(x, s)). \]
+У свою чергу шукана альтернатива вибирається з умови
 
-Критерій стабільності (V–критерій): \[ X^\star = . \]
+$$
+x^\star \in \arg\min\limits_{x \in x} E_D(x) = \arg\min\limits_{x \in x} \int\limits_{s \in S} p(s) \left( \int\limits_{s' \in S} p(s') f(x, s') \mathrm{d} s' - f(x, s) \right)^2 \mathrm{d} s.
+$$
+
+## Критерій максимізації ймовірності
+
+\[ X^\star = \Argmax_{x \in X} \Int_{s \in S, f(x, s) \ge f_0} p(s) \diff s, \] $f_0$ --- параметр. \medskip
+
+## Модальний критерій
+
+\[ X^\star = \Argmax_{x \in X} f(x, \Argmax_{s \in S} p(s)). \]
+
+## Критерій Севіджа (S-критерій)
+
+\[ X^\star = \Argmin_{x \in X} \max_{s \in S} (\max_{x' \in X} f(x', s) - f(x, s)). \]
+
+## Критерій стабільності (V–критерій)
+
+\[ X^\star = . \]
