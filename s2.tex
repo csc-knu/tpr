@@ -1,0 +1,757 @@
+\input{univ.sty}
+
+\lhead{Теорія прийняття рішень}
+
+\input{th.sty}
+
+\begin{document}
+
+\setcounter{section}{1}
+
+\tableofcontents
+
+\section{Бінарні відношення} 
+
+Нехай задана множина альтернатив (об'єктів) $\Omega$, принцип оптимальності безпосередньо у числовій формі не задано, але експерт для деяких пар об'єктів може вказати, який з об'єктів пари кращий (переважає) за іншого. У цьому випадку говоритимемо, що ці два об'єкти знаходяться в бінарному відношенні. Оскільки, з одного боку, народна мудрість говорить: ``Усе пізнається у порівнянні'' (для вибору кращого потрібно порівнювати), з іншого --- найпростіше порівнювати два об'єкти (ще одна народна мудрість: ``У трьох соснах заблукав''), бінарні відношення широко використовуються у теорії прийняття рішень.
+
+\begin{definition}[бінарного відношення]
+	\textit{Бінарним відношенням} $R$ на множині $\Omega$ називається підмножина $R$ декартового добутку $\Omega \times \Omega$.
+\end{definition}
+
+Нагадаймо
+
+\begin{definition}[декартового добутку]
+	\textit{Декартовим добутком} двох множин $A$ і $B$ називається множина пар елементів $(a, b)$, де $a \in A$, $b \in B$
+\end{definition}
+
+Якщо пара елементів $x$ і $y$ знаходиться в бінарному відношенні $R$, то будемо позначати цей факт як $(x, y) \in R$ або $x R y$. Якщо потрібно вказати множину $\Omega$, на якій задано бінарне відношення $R$, то будемо писати $R(\Omega)$ або $(R, \Omega)$.
+
+\subsection{Способи задання відношення}
+
+Крім безпосереднього задання всіх пар, для яких виконується відношення $R$, існує три основних способи задання відношень: матрицею, графом, перетинами.
+
+\subsubsection{Задання відношення матрицею}
+
+Нехай множина $\Omega$ містить $n$ елементів: $\Omega = \{x_1, \ldots, x_n\}$. Тоді матриця бінарного відношення $A(R)$ задається елементами $a_{ij}$, $i, j = \overline{1, n}$: $a_{ij}(R) = 1$, якщо $x_i R x_j$; $a_{ij}(R) = 0$, якщо не виконується $x_i R x_j$. З іншого боку, якщо задана матриця $A$ розміром $n \times n$ із нулів й одиниць і вибрано нумерацію елементів множини $\Omega$, що складається з $n$ елементів, то тим самим на $\Omega$ задається деяке відношення $R = R(A)$ таке, що $x_i R x_j$, виконано тоді й лише тоді, коли $a_{ij}(R) = 1$.
+
+\subsubsection{Задання відношення графом}
+
+Задання бінарного відношення $R$ графом здійснюється так. Елементам скінченої множини $\Omega = \{x_1, \ldots, x_n\}$ (при деякій нумерації) ставиться у взаємно-однозначну відповідність вершини графа $G$. Проведемо дугу від вершини $x_i$ до вершини $x_j$ тоді і лише тоді, коли виконується $x_i R x_j$ (при $i = j$ дуга $(x_i, x_j)$ перетворюється у петлю при вершині $x_i$). \medskip
+
+Якщо задано довільний граф $G$ із $n$ вершинами й обрано нумерацію на множині $\Omega$, то тим самим на $\Omega$ задається деяке відношення $R = R(\Omega)$ таке, що $x_i R x_j$ виконується тоді і лише тоді, коли у графі $G$ є дуга $(x_i, x_j)$. Граф є геометричним представленням відношення аналогічно тому, як графік є геометричним представленням функції. Геометрична мова корисна, якщо граф достатньо простий. Навпаки, вивчати й описувати складні графи з великою кількістю вершин часто зручно у термінах відношень. \medskip
+
+Оскільки у багатьох практичних випадках ЗПР кількість альтернатив скінченна (або стає скінченною після попереднього аналізу інформації), то попередні способи задання бінарного відношення широко використовуються (особливо наочним є задання графом).
+
+\subsubsection{Задання відношення перетинами}
+
+Універсальним способом задання відношень (зокрема, на нескінченних областях) є задання за допомогою перетинів.
+
+\begin{definition}[верхнього перетину]
+	\textit{Верхнім перетином} $R^+(x)$ називається множина елементів $y \in \Omega$ таких, що $(y, x) \in R$: \begin{equation}R^+(x) = \{y \in \Omega: (y, x) \in R\}.\end{equation}
+\end{definition}
+
+\begin{definition}[нижнього перетину]
+	\textit{Нижнім перетином} $R^-(x)$ називається множина елементів $y \in \Omega$ таких, що $(x, y) \in R$: \begin{equation}R^-(x) = \{y \in \Omega: (x, y) \in R\}.\end{equation}
+\end{definition}
+
+\subsection{Найпростіші відношення}
+
+\begin{definition}[порожнього відношення]
+	Відношення називається \textit{порожнім} і позначається $\varnothing$, якщо воно не виконується ні для однієї пари $(x, y) \in \Omega^2 \equiv \Omega \times \Omega$.
+\end{definition}
+
+\begin{properties}[порожнього відношення]
+	Для порожнього відношення справедливо:
+	\begin{itemize}
+		\item при заданні матрицею $\forall i,j: a_{ij}(\varnothing) = 0$;
+		\item граф $G(\varnothing)$ не має дуг;
+		\item $\forall x \in \Omega: R^+(x) = R^-(x) = \varnothing$.
+	\end{itemize}
+\end{properties}
+
+\begin{definition}[повного відношення]
+	Відношення $U$ називається \textit{повним}, якщо $U = \Omega^2$ (воно виконується для всіх пар $(x, y) \in \Omega^2$).
+\end{definition}
+
+\begin{properties}[повного відношення]
+	Для повного відношення $U$ справедливо:
+	\begin{itemize}
+		\item $\forall i, j: a_{ij}(U) = 1$;
+		\item граф $G(U)$ містить усі дуги та всі петлі;
+		\item $\forall x \in \Omega: R^+(x) = R^-(x) = \Omega$.
+	\end{itemize}
+\end{properties}
+
+\begin{definition}[діагонального відношення]
+	Відношення $E$ називається \textit{діагональним} (або відношенням рівності або одиничним відношенням), якщо $x E y$ тоді і лише тоді, коли $x = y$ (позначатимемо: $x E y \iff x = y$).
+\end{definition}
+
+\begin{properties}[діагонального відношення]
+	Для діагонального відношення виконується:
+	\begin{itemize}
+		\item $a_{ij}(E) = 1$ при $i = j$; $a_{ij}(E) = 0$ при $i \ne j$;
+		\item граф $G(E)$ має петлі при всіх вершинах, інші дуги відсутні;
+		\item $\forall x \in \Omega: R^+(x) = R^-(x) = \{x\}$.
+	\end{itemize}
+\end{properties}
+
+\begin{definition}[антидіагонального відношення]
+	Відношення $\overline{E}$ називається \textit{антидіагональним}, якщо $x \overline{E} y \iff x \ne y$. 
+\end{definition}
+
+\begin{properties}[антидіагонального відношення]
+	Для антидіагонального відношення $\overline{E}$ виконується:
+	\begin{itemize}
+		\item $a_{ij}(\overline{E}) = 0$ при $i = j$; $a_{ij}(\overline{E}) = 1$ при $i \ne j$;
+		\item граф $G(\overline{E})$ має всі дуги, петлі відсутні;
+		\item $\forall x \in \Omega: R^+(x) = R^-(x) = \Omega \setminus \{x\}$.
+	\end{itemize}
+\end{properties}
+
+\subsection{Операції над відношеннями}
+
+Нагадаємо основні операції над відношеннями, вважаючи, що всі вони задані на одній і тій самій множині $\Omega$.
+
+\begin{definition}[рівності відношень]
+	Відношення $R_1$ і $R_2$ \textit{рівні} ($R_1 = R_2$), якщо $x R_1 y \iff x R_2 y$ ($\forall (x, y) \in R_1, R_2$).
+\end{definition}
+
+\begin{definition}[вкладення відношень]
+	Відношення $R_1$ \textit{вкладається} у відношення $R_2$ (позначається $R_1 \subseteq R_2$), якщо з $x R_1 y$ випливає $x R_2 y$.
+\end{definition}
+
+\begin{definition}[строго вкладення відношень]
+	Відношення $R_1$ \textit{строго вкладається} у відношення $R_2$ ($R_1 \subset R_2$), якщо $R_1 \subseteq R_2$ і $R_1 \ne R_2$.
+\end{definition}
+
+\begin{properties}[вкладення відношень]
+	Очевидно, що:
+	\begin{itemize}
+	 	\item з $R_1 \subseteq R_2$ випливає $\forall i, j: a_{ij}(R_1) \le a_{ij}(R_2)$; 
+	 	\item також $\forall x \in \Omega: R_1^+(x) \subseteq R_2^+(x)$ і $R_1^-(x) \subseteq R_2^-(x)$.
+	\end{itemize}
+\end{properties}
+
+\begin{definition}[доповнення до відношення]
+	Відношення $\overline{R}$ називається \textit{доповненням} до відношення $R$, якщо $R = \Omega^2 \setminus R$, тобто воно виконується для тих і лише тих пар, для яких не виконується відношення $R$.
+\end{definition}
+
+\begin{properties}[доповнення до відношення]
+	Очевидно, що:
+	\begin{itemize}
+		\item $\forall i, j: a_{ij}(\overline{R}) = 1 - a_{ij}(R)$;
+		\item у графі $G(\overline{R})$ маються ті і лише ті дуги, котрі відсутні у графі $G(R)$;
+		\item $\forall x \in \Omega: \overline{R}^+(x) = \Omega \setminus R^+(x)$, $\overline{R}^-(x) = \Omega \setminus R^-(x)$.
+	\end{itemize}
+\end{properties}
+
+\begin{examples}[доповнень до відношень]
+	Легко бачити, що:
+	\begin{itemize}
+		\item $\overline{\varnothing} = U$;
+		\item $\overline{U} = \varnothing$;
+		\item антидіагональне відношення $\overline{E}$ є доповненням діагонального відношення $E$.
+	\end{itemize}
+\end{examples}
+
+\begin{proposition}[про доповнення до доповнення]
+	$\overline{\overline{R}} = R$.
+\end{proposition}
+
+\begin{proof}
+	$\overline{\overline{R}} = \Omega^2 \setminus (\Omega^2 \setminus R) = R$.
+\end{proof}
+
+\begin{definition}[перетину відношень]
+	\textit{Перетином} відношень $R_1$ і $R_2$ (позначається $R_1 \cap R_2$) називається відношення, що визначається перетином відповідних підмножин із $\Omega^2$.
+\end{definition}
+
+\begin{properties}[перетину відношень]
+	Легко перевірити, що для будь-яких $R_1$ і $R_2$: 
+	\begin{itemize}
+		\item $\forall i, j: a_{ij} (R_1 \cap R_2) = a_{ij}(R_1) \land a_{ij}(R_2)$, де $\land$ --- знак кон'юнкції;
+		\item $\forall x \in \Omega: (R_1 \cap R_2)^+(x) = R_1^+(x) \cap R_2^+(x)$.
+	\end{itemize}
+\end{properties}
+
+\begin{definition}[об'єднання відношень]
+	\textit{Об'єднанням} відношень $R_1$ і $R_2$ (позначається $R_1 \cup R_2$) називається відношення, що визначається обє'днанням' відповідних підмножин із $\Omega^2$.
+\end{definition}
+
+\begin{properties}[об'єднання відношень]
+	Очевидно, що
+	\begin{itemize}
+		\item $\forall i, j: a_{ij}(R_1 \cup R_2) = a_{ij}(R_1) \lor a_{ij} (R_2)$, де $\lor$ --- знак диз'юнкції;
+		\item $\forall x \in \Omega: (R_1 \cup R_2)^-(x) = R_1^-(x) \cup R_2^-(x)$.
+	\end{itemize}
+\end{properties}
+
+\begin{definition}[оберненого відношення]
+	Оберненим до відношення $R$ називається відношення $R^{-1}$, що визначається умовою: $x R^{-1} y \iff y R x$.
+\end{definition}
+
+\begin{properties}[оберненого відношення]
+	Очевидно, що для оберненого відношення $R^{-1}$ виконується:
+	\begin{itemize}
+		\item $\forall i, j: a_{ij} (R^{-1}) = a_{ji} (R)$;
+		\item граф $G(R^{-1})$ отримують із графа $G(R)$ зміною направлення всіх дуг (зокрема петлі залишаються, нові не додаються);
+		\item $\forall x \in \Omega: (R^{-1})^+(x) = R^-(x)$ і $(R^{-1})^-(x) = R^+(x)$.
+	\end{itemize}
+\end{properties}
+
+\begin{proposition}[про обернене до оберненого]
+	$\left(R^{-1}\right)^{-1} = R$.
+\end{proposition}
+
+\begin{proof}
+	Оскільки за визначенням \begin{equation} x \left(R^{-1}\right)^{-1} y \iff y R^{-1} x \iff x R y,\end{equation} то $\left(R^{-1}\right)^{-1} = R$.
+\end{proof}
+
+Аналогічно легко показати, що виконується
+\begin{proposition}[про комутативність взяття доповнення і обертання]
+	$\overline{R^{-1}} = (\overline{R})^{-1}$.
+\end{proposition}
+
+\begin{exercise}
+	Доведіть попереднє твердження.
+\end{exercise}
+
+\begin{definition}[двоїстого відношення]
+	\textit{Двоїстим} до $R$ називається відношення $R^d = \overline{R^{-1}}$ або, у силу попереднього твердження, $R^d = \left(\overline{R}\right)^{-1}$.
+\end{definition}
+
+\begin{proposition}[про двоїсте до двоїстого]
+	$\left(R^d\right)^d = R$.
+\end{proposition}
+
+\begin{proof}
+	Маємо \begin{equation}\left(R^d\right)^d = \overline{\left(\overline{R^{-1}}\right)^{-1}} = \overline{\left(\left(\overline{R}\right)^{-1}\right)^{-1}} = \overline{\overline{R}} = R.\end{equation}
+\end{proof}
+
+Використовуючи правило де Моргана, легко показати, що виконуються
+\begin{proposition}[про двоїсте до об'єднання і перетину]
+	$(R_1 \cup R_2)^d = R_1^d \cap R_2^d$, а також $(R_1 \cap R_2)^d = R_1^d \cup R_2^d$.
+\end{proposition}
+
+\begin{exercise}
+	Доведіть попереднє твердження.
+\end{exercise}
+
+\begin{proposition}[про граф двоїстого відношення]
+	Для того, щоб перейти від графа $G(R)$ до графа $G(R^d)$, необхідно:
+	\begin{itemize}
+		\item видалити з графа $G(R)$ усі пари протилежних дуг і всі петлі;
+		\item з'єднати вершини $i, j$ дугами $(i, j)$, $(j, i)$, якщо вони не з'єднані у $G(R)$;
+		\item додати петлі $(i, i)$, які були відсутні у $G(R)$.
+	\end{itemize}
+\end{proposition}
+
+\begin{exercise}
+	Доведіть попереднє твердження.
+\end{exercise}
+
+\begin{definition}[добутку відношень]
+	\textit{Добутком} відношень $R_1$ і $R_2$ називається відношення $R = R_1 \cdot R_2$, що визначається так: існує $z \in \Omega$ таке, що $x R_1 z$ і $z R_2 y$.
+\end{definition}
+
+\begin{proposition}[про асоціативність доубутку відношень]
+	Для добутку відношень виконується асоціативний закон: \begin{equation}(R_1 \cdot R_2) \cdot R_3 = R_1 \cdot (R_2 \cdot R_3),\end{equation} тобто добуток $R_1 \cdot R_2 \cdot R_3$ визначається однозначно.
+\end{proposition}
+
+\begin{example}[асоціативності добутку відношень]
+	Зокрема, $R \cdot R \cdot R = R^3$.
+\end{example}
+
+\begin{exercise}
+	Доведіть попереднє твердження.
+\end{exercise}
+
+\begin{proposition}[про матрицю добутку відношень]
+	Легко показати, що матриця добутку відношень $A(R_1 \cdot R_2) = A(R_1) \cdot A(R_2)$, де добуток матриць $A^1 = A(R_1)$ і $A^2 = A(R_2)$ визначається формулою: \begin{equation}a_{ik} = \bigvee\limits_{j = 1}^n \left( a_{ij}^1 \land a_{jk}^2 \right).\end{equation}
+\end{proposition}
+
+\begin{exercise}
+	Доведіть попереднє твердження.
+\end{exercise}
+
+\begin{definition}[звуження відношення]
+	Відношення $(R_1, \Omega_1)$ називається \textit{звуженням} відношення $(R, \Omega)$ на $\Omega_1$, якщо $\Omega_1 \subseteq \Omega$ і $R_1 = R \cap \Omega_1^2$.
+\end{definition}
+
+\begin{proposition}[про граф звуження відношення]
+	Граф $G(R_1)$ відношення $(R_1, \Omega_1)$ --- це підграф графа $G(R)$, що породжується множиною вершин $\Omega_1 \subseteq \Omega$.
+\end{proposition}
+
+\begin{exercise}
+	Доведіть попереднє твердження.
+\end{exercise}
+
+\subsubsection{Відношення на різних множинах}
+
+Нехай на множинах $\Omega_1$ та $\Omega_2$ задані відповідні відношення $R_1$ і $R_2$.
+
+\begin{definition}[ізоморфних відношень]
+	Відношення $(R_1, \Omega_1)$ і $(R_2, \Omega_2)$ називаються \textit{ізоморфними}, якщо існує взаємно-однозначне відображення $\varphi: \Omega_1 \to \Omega_2$, що $x R_1 y \iff \varphi(x) R_2 \varphi(y)$.
+\end{definition}
+
+\begin{definition}[ізоморфізму]
+	$\varphi$ при цьому називається \textit{ізоморфізмом} $(R_1, \Omega_1)$ і $(R_2, \Omega_2)$.
+\end{definition}
+
+\begin{definition}[гомоморфізму]
+	Відображення $\varphi: \Omega_1 \to \Omega_2$ називається \textit{гомоморфізмом} $(R_1, \Omega_1)$ у $(R_2, \Omega_2)$, якщо $x R_1 y \implies \varphi(x) R_2 \varphi(y)$.
+\end{definition}
+
+\subsection{Властивості бінарних відношень}
+
+Наведемо основні властивості бінарних відношень, що необхідні для аналізу задач прийняття рішень.
+
+\begin{definition}[рефлексивного відношення]
+	Відношення $R$ називається \textit{рефлексивним}, якщо для $\forall x$, $x R x$, іншими словами: $E \subseteq R$, де $E$ --- діагональне відношення.
+\end{definition}
+
+\begin{properties}[рефлексивного відношення]
+	Легко бачити, що:
+	\begin{itemize}
+		\item у матриці $A(R)$ рефлексивного відношення на головній діагоналі стоять одиниці;
+		\item у графі $G(R)$ при кожній вершині є петля;
+		\item $\forall x \in \Omega: x \in R^+(x)$ і $x \in R^-(x)$.
+	\end{itemize}
+\end{properties}
+
+\begin{definition}[антирефлексивного відношення]
+	Відношення $R$ називається \textit{антирефлексивним}, якщо з $x R y$ випливає $x \ne y$, іншими словами: $R \subseteq \overline{E}$.
+\end{definition}
+	 
+\begin{properties}[рефлексивного відношення]
+	Легко бачити, що:
+	\begin{itemize}
+		\item у матриці $A(R)$ антирефлексивного відношення на головній діагоналі стоять нулі;
+		\item у графі $G(R)$ відсутні петлі;
+		\item $\forall x \in \Omega: x \notin R^+(x)$ і $x \notin R^-(x)$.
+	\end{itemize}
+\end{properties}
+
+\begin{proposition}[про зв'язок двоїстості і рефлексивності]
+	Легко показати, що якщо відношення $R$ рефлексивне, то $R^d$ антирефлексивне; якщо $R$ --- антирефлексивне, то $R^d$ --- рефлексивне.
+\end{proposition}
+
+\begin{exercise}
+	Доведіть попереднє твердження.
+\end{exercise}
+
+\begin{definition}[симетричного відношення]
+	Відношення $R$ називається \textit{симетричним}, якщо з $x R y$ випливає $y R x$, іншими словами: $R \subseteq R^{-1}$.
+\end{definition}
+
+\begin{properties}[симетричного відношення]
+	Легко бачити, що:
+	\begin{itemize}
+		\item матриця $A(R)$ симетричного відношення $R$ симетрична: \begin{equation}\forall i, j: a_{ij} = a_{ji};\end{equation}
+		\item у графі $G(R)$ разом із кожною дугою $(x, y)$ входить і дуга $(y, x)$; 
+		\item $R^+(x) = R^-(x)$ ($\forall x \in \Omega$).
+	\end{itemize}
+\end{properties}
+
+\begin{theorem}[необхідна і достатня умова симетрчиності]
+	Відношення $R$ є симетричним тоді і тільки тоді, коли $R = R^{-1}$.
+\end{theorem}
+
+\begin{proof}
+	Із визначення симетричного відношення ($R \subseteq R^{-1}$) випливає, що $R^{-1} \subseteq (R^{-1})^{-1} = R$, отже, необхідною й достатньою умовою симетричності відношення є умова $R = R^{-1}$.
+\end{proof}
+
+\begin{definition}[асиметричного відношення]
+	Відношення $R$ називається \textit{асиметричним}, якщо з $x R y$ випливає $y \overline{R} x$, іншими словами: $R \cap R^{-1} = \varnothing$.
+\end{definition}
+
+\begin{properties}[асиметричного відношення]
+	Легко бачити, що:
+	\begin{itemize}
+		\item у матриці $A(R)$ асиметричного відношення \begin{equation}\forall i, j: a_{ij}(R) \land a_{ji}(R) = 0;\end{equation}
+		\item граф $G(R)$ не може мати одночасно дуг $(x,y)$ і $(y, x)$;
+		\item $\forall x \in \Omega$ і $\forall y \in R^-(x): x \notin R^-(y)$.
+	\end{itemize}
+\end{properties}
+
+\begin{proposition}[про антирефлексивність асиметричного відношення]
+	Якщо відношення $R$ асиметричне, то воно антирефлексивне.
+\end{proposition}
+
+\begin{proof}
+	Дійсно, нехай для деякого $x$ виконується $x R x$, тоді $x R^{-1} x$ і $x (R\cap R^{-1}) x$, тобто $R \cap R^{-1} \ne \varnothing$, що суперечить асиметричності.
+\end{proof}
+
+\begin{definition}[антисиметричного відношення]
+	Відношення $R$ називається \textit{антисиметричним}, якщо з $x R y$ і $y R x$ випливає $x = y$ або $R \cap R^{-1} \subseteq E$.
+\end{definition}
+
+\begin{properties}[антисиметричного відношення]
+	Легко бачити, що:
+	\begin{itemize}
+		\item у матриці $A(R)$ антисиметричного відношення \begin{equation}\forall i \ne j: a_{ij}(R) \land a_{ji}(R) = 0;\end{equation}
+		\item граф $G(R)$ не може містити одночасно дуги $(x, y)$ і $(y, x)$ при $x \ne y$; 
+		\item $\forall x \in \Omega$ і $\forall y \in R^{-1}(x)$ таких, що $x \ne y$: $x \notin R^-(y)$.
+	\end{itemize}
+\end{properties}
+
+\begin{definition}[транзитивного відношення]
+	Відношення $R$ називається \textit{транзитивним}, якщо з $x R z$ і $z R y$ випливає $x R y$ або $R^2 \subseteq R$.
+\end{definition}
+
+\begin{properties}[транзитивного відношення]
+	Легко бачити, що:
+	\begin{itemize}
+		\item у матриці $A(R)$ транзитивного відношення \begin{equation}\forall i, k: \bigvee\limits_{j = 1}^n (a_{ij}(R) \land a_{ik}(R)) \le a_{ik}(R);\end{equation}
+		\item у графі $G(R)$ існує дуга $(x, y)$, якщо існує шлях із $x$ в $y$;
+		\item $\forall x \in \Omega$ і $\forall y \in R^+(x)$: $R^+(y) \subseteq R^+(x)$.
+	\end{itemize}
+\end{properties}
+
+За індукцією для транзитивного відношення $R$ маємо: із $x R z_1$, $z_1 R z_2$, $\ldots$, $z_{k-1} R y$ випливає $x R y$. Якщо транзитивне відношення $R$ є рефлексивним, то $E \subseteq R$, звідки $E \cdot R \subseteq R \cdot R$, отже, $R = R^2$.
+
+\begin{definition}[ациклічного відношення]
+	Відношення $R$ називається \textit{ациклічним}, якщо з $x R z_1, z_1 R z_2, \ldots, z_{k-1} R y$ випливає $x \ne y$.
+\end{definition}
+
+\begin{proposition}[про асиметричність ациклічного відношення]
+	Ациклічне відношення асиметричне.
+\end{proposition}
+
+\begin{exercise}
+	Доведіть попереднє твердження.
+\end{exercise}
+
+\begin{proposition}[про ациклічність антирефлексивного транзитивного відношення]
+	Аантирефлексивне транзитивне відношення є ациклічним. 
+\end{proposition}
+
+\begin{exercise}
+	Доведіть попереднє твердження.
+\end{exercise}
+
+\begin{properties}[ациклічного відношення]
+	Легко бачити, що:
+	\begin{itemize}
+		\item якщо точки $x$ і $y$ у графі ациклічного відношення з'єднані шляхом, то у ньому немає дуги $(y, x)$; 
+		\item якщо $z_1 \in R^-(x), z_2 \in R^-(z_1), \ldots, y \in R^-(z_{k-1})$, то $x \notin R^-(y)$;
+		\item аналогічні співвідношення виконуються для верхніх перерізів.
+	\end{itemize}
+\end{properties}
+
+Ациклічність і транзитивність відношень особливо важливі у теорії вибору та прийняття рішень, оскільки ці властивості виражають деякі природні взаємозв'язки між об'єктами. \medskip
+
+Дійсно, якщо об'єкт $x$ у якомусь розумінні кращий за $z$, об'єкт $z$ кращий за $y$, то природно вважати, що $y$ не кращий за $x$ (ациклічність), а в деяких випадках $x$ буде кращим за $y$ (транзитивність).
+
+\begin{definition}[негативно транзитивного відношення]
+	Відношення $R$ називається \textit{негативно транзитивним}, якщо його доповнення $\overline{R}$ транзитивне.
+\end{definition}
+
+\begin{definition}[сильно транзитивного відношення]
+	Відношення $R$ називається \textit{сильно транзитивним}, якщо воно одночасно транзитивне і негативно транзитивне.
+\end{definition}
+
+Структуру сильно транзитивних відношень визначає така теорема.
+
+\begin{theorem}[про структуру сильно транзитивних відношень]
+	Нехай $(R, \Omega)$ --- сильно транзитивне відношення на $\Omega$, $|\Omega| < \infty$. Тоді існує розбиття \begin{equation} \Omega = \bigsqcup\limits_{i = 1}^n \Omega_i \end{equation} таке, що: $x R y$ якщо $x \in \Omega_i$, $y \in \Omega_j$, $i < j$, а звуження відношення $R$ на будь-яке із $\Omega_i$ є або порожнім або повним на $\Omega_i$.
+\end{theorem}
+
+\begin{sproblem}
+	Доведіть попередню теорему.
+\end{sproblem}
+
+\begin{definition}[зв'язного відношення]
+	Відношення $R$ називається \textit{зв'язним}, якщо виконується $(x R y \lor y R x) \lor (x R y \land y R x)$, тобто між будь-якими вершинами $x$ і $y$ існують дуги (зокрема, петлі).
+\end{definition}
+
+\subsection{Відношення важливі для тпр}
+
+Використаємо розглянуті властивості для виділення відношень, важливих для теорії вибору та прийняття рішень.
+
+\begin{definition}[відношення еквівалентності]
+	Відношення $R$ називається відношенням \textit{еквівалентності}, якщо воно рефлексивне, симетричне і транзитивне (позначення ``$\cong$'').
+\end{definition}
+
+Нехай задано розбиття \begin{equation} \Omega = \bigsqcup\limits_{i = 1}^n \Omega_i.\end{equation} Введемо на $\Omega$ таке відношення $R$: $x R y$ тоді і лише тоді, коли існує підмножина $\Omega_i$, що містить $x$ і $y$. Легко перевірити, що задання еквівалентності на деякій підмножині $\Omega$ рівносильне розбиттю на класи еквівалентних один одному елементів. Навпаки, будь-яке розбиття $\Omega$ визначає відповідну йому еквівалентність.
+
+\begin{definition}[відношення нестрогого порядку]
+	Відношення $R$ називається відношенням \textit{нестрогого порядку}, якщо воно рефлексивне, антисиметричне і транзитивне (позначення --- ``$\preceq$'').
+\end{definition}
+
+\begin{definition}[відношення строгого порядку]
+	Відношення $R$ називається відношенням строгого порядку, якщо воно антирефлексивне, асиметричне і транзитивне (позначення --- ``$\prec$'').
+\end{definition}
+
+\begin{proposition}[про задання нестрогим порядком строгого]
+	Якщо $\preceq$ --- нестрогий порядок на $\Omega$, то йому можна зіставити строгий порядок $\prec$, що визначається так: $x \prec y \iff x \preceq y \land x \ne y$. 
+\end{proposition}
+
+\begin{exercise}
+	Доведіть попереднє твердження.
+\end{exercise}
+
+\begin{proposition}[про задання строгим порядком нестрогого]
+	Навпаки, якщо $\prec$ --- строгий порядок на $\Omega$, то йому можна зіставити нестрогий порядок $\preceq$ так: $x \preceq y \iff x \prec y \lor x = y$.
+\end{proposition}
+
+\begin{exercise}
+	Доведіть попереднє твердження.
+\end{exercise}
+
+\begin{remark}
+	Отже, нестрогому порядку однозначно відповідає строгий порядок (і навпаки). Тому за основу береться нестрогий порядок, який називається \textit{частковим порядком}.
+\end{remark}
+
+\begin{definition}[відношення включення (підпорядкованості)]
+	Нехай на множині $2^\Omega$ всіх підмножин фіксованої множини $\Omega$ задане відношення $R$ так: $X R Y \iff X \subseteq Y$. 
+\end{definition}
+
+Таке відношення є частковим порядком, про що свідчить така теорема.
+
+\begin{theorem}
+	Довільний частковий порядок на множині $\Omega$ ізоморфний звуженню відношення ``включення'' на деяку підмножину $2^\Omega$, тобто існує таке відображення $\Theta: \Omega \to 2^\Omega$, що $x \preceq y \iff \Theta(x) \subseteq \Theta(y)$.
+\end{theorem}
+
+\begin{sproblem}
+	Доведіть попередню теорему.
+\end{sproblem}
+
+\begin{definition}[відношення лінійного порядку (лінійного порядку)]
+	Частковий порядок на $\Omega$ називається \textit{лінійним порядком}, якщо він задовольняє зв'язності, тобто виконується одна з умов: $x \prec y, x = y, x \succ y$.
+\end{definition}
+
+\begin{definition}[відношення домінування (домінування)]
+	Відношення $R$ називається домінуванням, якщо воно антирефлексивне й асиметричне. 
+\end{definition}
+
+\begin{remark}
+	Отже, строгий частковий порядок --- це частинний випадок відношення домінування (з додатковою властивістю транзитивності).
+\end{remark}
+
+\begin{definition}[відношення подібності (толерантності)]
+	Відношення $R$ називається відношенням подібності, якщо воно рефлексивне й симетричне (позначення --- ``$\approx$'').
+\end{definition}
+
+\begin{remark}
+	Отже, еквівалентність --- частинний випадок подібності (з додатковою властивістю транзитивності).
+\end{remark}
+
+\begin{definition}[відношення нестрогої переваги (перевага)]
+	Відношення ``$\ge$'' називається перевагою, якщо воно задовольняє властивості рефлексивності.
+\end{definition}
+
+\begin{remark}
+	Отже, відношення подібності, у свою чергу, є частинним випадком відношення переваги. 
+\end{remark}
+
+Рефлексивність відношень нестрогої переваги відображає той природний факт, що будь-яка альтернатива є не гіршою за себе. \medskip
+
+У свою чергу, можна узагальнити відношення часткового порядку (строгого часткового порядку), відмовившись від властивості антисиметричності (асиметричності), отримавши відношення \textit{квазіпорядку} (\textit{строгого квазіпорядку}). \medskip
+
+\begin{proposition}
+	Відношення строгого квазіпорядку і строгого часткового порядку співпадають.
+\end{proposition}
+
+\begin{proof}
+	З антирефлексивності та транзитивності випливає асиметричність: якщо $x R y \land y R x$, то $x R x$ (із транзитивності), що невірно ($R$ --- антирефлексивне). Отже, одне з відношень $x R y$ або $y R x$ не виконується, тобто $R$ --- асиметричне.
+\end{proof}
+
+Введені відношення зведемо у таблиці:
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l||c|c|c|c|c|c|c|}
+		\hline
+		 & \rotatebox[origin=c]{90}{рефлексивність} & \rotatebox[origin=c]{90}{\,антирефлексивність\,} & \rotatebox[origin=c]{90}{симетричність} & \rotatebox[origin=c]{90}{асиметричність} & \rotatebox[origin=c]{90}{антисиметричність} & \rotatebox[origin=c]{90}{транзитивність} & \rotatebox[origin=c]{90}{зв'язність} \\ \hline \hline
+		Перевага & $\star$ & & & & & & \\ \hline
+		Подібність (толерантність) & $\star$ & & $\star$ & & & & \\ \hline
+		Еквівалентність & $\star$ & & $\star$ & & & $\star$ & \\ \hline \hline
+		Квазіпорядок & $\star$ & & & & & $\star$ & \\ \hline
+		Впорядкування & $\star$ & & & & & $\star$ & $\star$ \\ \hline
+		Частковий порядок & $\star$ & & & & $\star$ & $\star$ & \\ \hline
+		Лінійний порядок & $\star$ & & & & $\star$ & $\star$ & $\star$ \\ \hline \hline
+		Строгий квазіпорядок & & $\star$ & & & & $\star$ & \\ \hline
+		Строгий порядок & & $\star$ & & & & $\star$ & $\star$ \\ \hline \hline
+		Домінування & & $\star$ & & $\star$ & & & \\ \hline
+		Строгий частковий порядок & & $\star$ & & $\star$ & & $\star$ & \\ \hline
+		Строгий лінійний порядок & & $\star$ & & $\star$ & & $\star$ & $\star$ \\ \hline
+	\end{tabular}
+\end{table}
+
+\subsection{Бінарне відношення як принцип оптимальності}
+
+Якщо принципи оптимальності задаються бінарним відношенням, то відповідним чином здійснюється структурування множини альтернатив:
+
+\begin{itemize}
+	\item розбиття на класи (наприклад, використовуючи теореми);
+	\item упорядкування (за відповідними відношеннями порядку).
+\end{itemize}
+
+Вибір кращого (кращих) елементів множини здійснюється за допомогою поняття $R$-оптимальності.
+
+\begin{definition}[$R$-максимуму]
+	Елемент $x \in \Omega$ називається \textit{максимумом} за відношенням $R$ ($R$-максимумом), якщо $\forall y \in \Omega: x R y$.
+\end{definition}
+
+\begin{definition}[$R$-мінімуму]
+	Елемент $x \in \Omega$ називається \textit{мінімумом} за відношенням $R$ ($R$-мінімумом), якщо $\forall y \in \Omega: y R x$.
+\end{definition}
+
+$R$-максимуми і $R$-мінімуми можуть як існувати, так і не існувати, у випадку існування можуть бути не єдиними.
+
+\begin{example}
+Так, для відношення ``більше або рівне'' на множині дійсних чисел не існує ні максимуму, ні мінімуму.
+\end{example}
+
+\begin{definition}[$R$-мажоранти]
+	Елемент $x \in \Omega$ називається \textit{мажорантою} за відношенням $R$ ($R$-мажорантою), якщо $\forall y \in \Omega: y \overline{R} x$.
+\end{definition}
+
+\begin{definition}[$R$-міноранти] 
+	Елемент $x \in \Omega$ називається \textit{мінорантою} за відношенням $R$ ($R$-мінорантою), якщо $\forall y \in \Omega: x \overline{R} y$.
+\end{definition}
+
+Позначимо через $\Omega^+(R)$ множину $R$-максимумів, $\Omega_+(R)$ --- $R$-мажорант, $\Omega^-(R)$ --- $R$-мінімумів, $\Omega_-(R)$ --- $R$-мінорант.
+
+\begin{theorem}[про зв'язок оптимумів і оберненого]
+	$\Omega^+(R) = \Omega^-\left(R^{-1}\right)$, $\Omega^-(R) = \Omega^+\left(R^{-1}\right)$, $\Omega_+(R) = \Omega_-\left(R^{-1}\right)$, $\Omega_-(R) = \Omega_+\left(R^{-1}\right)$.
+\end{theorem}
+
+\begin{proof}
+	Доведемо першу рівність (інші --- аналогічно): 
+	\begin{multline}
+		x \in \Omega^+(R) \iff \forall y \in \Omega: x R y \iff \\
+		\iff \forall y \in \Omega: y R^{-1} x \iff x \in \Omega^-\left(R^{-1}\right).
+	\end{multline}
+\end{proof}
+
+\begin{theorem}[про зв'язок оптимумів і двоїстого]
+	$\Omega^+(R) = \Omega_+\left(R^d\right)$, $\Omega^-(R) = \Omega_-\left(R^d\right)$, $\Omega_+(R) = \Omega^+\left(R^d\right)$, $\Omega_-(R) = \Omega^-\left(R^d\right)$.
+\end{theorem}
+
+\begin{proof}
+	Доведемо першу рівність (інші --- аналогічно): 
+	\begin{multline} 
+		x \in \Omega^+(R) \iff \forall y \in \Omega: x R y \iff \forall y \in \Omega: y R^{-1} x \iff \\ 
+		\iff \forall y \in \Omega: y \overline{R^{-1}} x \iff y R^d x \iff x \in \Omega_+\left(R^d\right). 
+	\end{multline}
+\end{proof}
+
+\subsubsection{Оптимуми у теорії вибору}
+
+Множина $\Omega_+(R)$ відіграє важливу роль у теорії вибору.
+
+\begin{definition}[множини недомінованих елементів]
+	У теорії вибору $\Omega_+(R)$ називається також множиною \textit{недомінованих} за $R$ елементів.
+\end{definition}
+
+\begin{definition}[$R$-оптимальних елементів]
+	Елементи, що входять у множину $\Omega_+(R)$, називаються також \textit{$R$-оптимальними}.
+\end{definition}
+
+Множину $R$-оптимальних елементів позначатимемо через $\Omega^R$, множину максимальних елементів --- $\Omega_R$.
+
+\begin{definition}[максимального ланцюга]
+	\textit{Максимальним ланцюгом} відносно до $R$, заданому на $\Omega$, називається найдовша послідовність $x_1, \ldots, x_m$ така, що $x_i R x_{i+1}$, $i = \overline{1, m - 1}$.
+\end{definition}
+
+\begin{theorem}[про гомоморфізм ациклічного відношення у лінійний порядок]
+	Гомоморфізм $\varphi$ відношення $(R, \Omega)$ у лінійний порядок існує для довільного ациклічного $R$, але при цьому $|\varphi(\Omega)| \ge m$, де $m$ --- довжина максимального ланцюга в $\Omega$.
+\end{theorem}
+
+\begin{proof}
+	Нехай $\Omega_1^R$ --- множина недомінованих за $R$ елементів $\Omega$, тобто $\Omega_1^R = \Omega^R$. Покладемо \begin{equation}\Omega_2^R = \left( \Omega \setminus \Omega_1^R \right)^R, \quad \ldots, \quad \Omega_s^R = \left( \Omega \setminus \bigsqcup\limits_{i = 1}^{s - 1} \Omega_i^R \right)^R, \end{equation} причому \begin{equation}\Omega = \bigsqcup\limits_{i = 1}^s \Omega_i^R. \end{equation} Гомоморфізм $\varphi$ можна задати формулою $\varphi(x) = s - i$, якщо $x \in \Omega_i^R$.
+\end{proof}
+
+\subsection{Контрольні запитання}
+
+\begin{problem}
+	Скільки існує різних відношень із множини $A$ у множину $B$, якщо $|A| = n$, $|B| = m$ (будемо говорити: $n$-множина i $m$-множина)?
+\end{problem}
+
+\begin{problem}
+	Скільки є таких відношень $R$ із $n$-множини в $m$-множину, що
+	\begin{enumerate}
+		\item $\forall x: \exists y: x R y$;
+		\item $\forall y: \exists x: x R y$;
+	\end{enumerate}
+\end{problem}
+
+\begin{problem}
+	Яку особливість має граф відношення $R$ з $A$ в $B$, якщо:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $x R y \land x R z \implies y = z$;
+			\item $x R y \land z R x \implies x = z$;
+		\end{enumerate}
+	\end{multicols}
+	\begin{multicols}{3}
+		\begin{enumerate}
+			\setcounter{enumi}{2}
+			\item $\forall x: \exists y: x R y$;
+			\item $\exists y: \forall x: x R y$;
+			\item $\forall y: \exists x: x R y$;
+			\item $\exists x: \forall y: x R y$;
+			\item $\lnot \forall x: \exists y: x R y$;
+			\item $\forall x: \lnot \exists y: x R y$;
+			\item $\lnot \exists y: \forall x: x R y$;
+			\item $\exists y: \lnot \forall x: x R y$;
+			\item $\lnot \forall y: \exists x: x R y$;
+			\item $\forall y: \lnot \exists x: x R y$;
+			\item $\lnot \exists x: \forall y: x R y$;
+			\item $\exists x: \lnot \forall y: x R y$.
+		\end{enumerate}
+	\end{multicols}
+\end{problem}
+
+\begin{problem}
+	Які з наведених нижче відношень у множині цілих чисел є рефлексивними, транзитивними, симетричними й антисиметричними:
+	\begin{multicols}{4}
+		\begin{enumerate}
+			\item $x < y$;
+			\item $x \le y$;
+			\item $|x| = |y|$;
+			\item $x + y = 0$;
+			\item $|x| > y$;
+			\item $|x| \ge y $;
+			\item $x = y$;
+			\item $x + 1 = y$;
+			\item $|x - y| = 1$;
+			\item $|x - y| \le 1$;
+			\item $y \mid x$;
+			\item $y \nmid x$.
+		\end{enumerate}
+	\end{multicols}
+\end{problem}
+
+\begin{problem}
+	Скільки існує різних рефлексивних, симетричних, антисиметричних відношень у $n$-елементній множині?
+\end{problem}
+
+\begin{problem}
+	Довести, що максимум за частковим порядком не є єдиним.
+\end{problem}
+
+\begin{problem}
+	Навести приклади відношень:
+	\begin{enumerate}
+		\item рефлексивного та симетричного, але не транзитивного;
+		\item рефлексивного і транзитивного, але не симетричного;
+		\item симетричного і транзитивного, але не рефлексивного
+	\end{enumerate}
+\end{problem}
+
+\begin{sproblem}
+	Довести, що якщо $R$-відношення часткового порядку, то $R^{-1}$ також є частковим порядком.
+\end{sproblem}
+
+\begin{sproblem}
+	Довести, що для лінійно впорядкованої множини поняття мажоранти (міноранти) і максимума (мінімума) збігаються.
+\end{sproblem}
+
+\begin{dproblem}
+	Довести, що серед будь-яких шести осіб знайдуться або три попарно знайомих, або три попарно незнайомих.
+\end{dproblem}
+
+\end{document}
