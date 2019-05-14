@@ -116,3 +116,5 @@ _Незабаром тут будуть розміщені посилання н
 55. Voloshyn O., Berezovskiy K. Developing collective theaching computer software for the course &laquo;Decision theory&raquo; // International Journal &laquo;Information Technologies & Knowledge&raquo;. &mdash; 2007. &mdash; Vol. 1. &mdash; P. 33-36.
 
 56. Zaden L.A. Fuzzy sets // Information and Control. &mdash; 1965. &mdash; № 8. &mdash; Р. 338-353.
+
+[Назад на головну](../README.md)
