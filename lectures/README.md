@@ -3,10 +3,8 @@
 
 Є навчальний посібник &laquo;Моделі та методи прийняття рішень&raquo; авторства О.&nbsp;Ф.&nbsp;Волошина і С.&nbsp;О.&nbsp;Мащенка: [pdf](voloshyn-mashenko.pdf)
 
-_Розбивка за лекціями у розробці, передбачається як pdf- так і web-версія._
+_Розбивка за лекціями у розробці, передбачається як pdf- так і web-версія:_
 
-1. Вступ: [web](introduction.md), [pdf](introduction.pdf);
-
-2. Базові основи прийняття рішень: [web](chapter-1.md), [pdf](chapter-1.pdf)
+1. Вступ і базові основи прийняття рішень: [web](01.md), [old pdf](01-old.pdf), [LaTeX source](01.tex), [new pdf](01-new.pdf)
 
 [Назад на головну](../README.md)
