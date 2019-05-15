@@ -15,7 +15,7 @@
 
 - Шевчук Юлія Михайлівна, [розклад](https://mytimetable.live/teacher/Shevchyk-UM/)
 
-Сайт і навчальні матеріали &mdash; Скибицький Нікіта Максимович, n.skybytskyi<span style="font-family:monospace;">@</span>gmail.com
+Підтримка сайту &mdash; Скибицький Нікіта Максимович, n.skybytskyi<span style="font-family:monospace;">@</span>gmail.com
 
 ### Розподіл балів
 
