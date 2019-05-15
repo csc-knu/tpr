@@ -41,6 +41,8 @@ _Розподіл балів на цей семестр &mdash; орієнтов
 
 - [Практичні](practices/README.md)
 
-- [Контрольні](exams/README.md)
+- [Контрольні роботи](exams/README.md)
+
+- [Контрольні питання](control/README.md)
 
 - [Література](books/README.md)
