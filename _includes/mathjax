@@ -3,7 +3,9 @@
 		MathJax.Hub.Config({
 			CommonHTML: { scale: 100 },
 			TeX: { 
-				equationNumbers: { autoNumber: "AMS" },
+				equationNumbers: { 
+					autoNumber: "AMS"
+				},
 				Macros: {
 					RR: "{\\mathbb{R}}",
 					diff: "\\mathop{}\\!\\mathrm{d}",
