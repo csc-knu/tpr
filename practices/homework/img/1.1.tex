@@ -1,0 +1,16 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{positioning}
+\usepackage{xcolor}
+\definecolor{processblue}{cmyk}{0.96,0,0,0}
+\begin{document}
+\begin{tikzpicture}[-latex, auto, state/.style={circle, top color=white, bottom color=processblue!20, draw, processblue, text=blue, minimum width=1cm}]
+	\node[state] (x) {$x$};
+	\node[coordinate] (w) [above of=x, node distance=2cm] {};
+	\node[state] (y) [left of=w, node distance=1.5cm] {$y$};
+	\node[state] (z) [right of=w, node distance=1.5cm] {$z$};
+	\path[->] (x) edge node {} (z);
+	\path[->] (y) edge [loop left] node[left] {} (y);
+	\path[->] (z) edge node {} (y);
+	\path[->] (z) edge [loop right] node[left] {} (z);
+\end{tikzpicture}
+\end{document}
