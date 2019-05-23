@@ -1,0 +1,228 @@
+\section*{11 лютого 2019 р.}
+
+\setcounter{problem}{0}
+
+\begin{problem*}[класна]
+    Побудувати функцію вибору, яка породжена бінарним відношенням \[ R = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 1 & 1 \\ 1 & 0 & 0 \end{pmatrix} \]
+\end{problem*}
+
+\begin{solution}
+    Скористаємося визначенням: \[ \forall X \subseteq \Omega: \quad C^R(X) = \{ x \in X: \forall y \in X: y \bar R x \}.\]
+    
+    При знаходженні $C^R(X)$ будемо дивитися на відповідну під-матрицю $R$ і шукати ті $x_i$ у стовпцях яких усі нулі, тобто не існує елементу що більший за них:
+    
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|c|c|}
+            \hline
+            $X$ & $\{x_1\}$ & $\{x_2\}$ & $\{x_3\}$ & $\{x_1, x_2\}$ & $\{x_1, x_3\}$ & $\{x_2, x_3\}$ & $\{x_1, x_2, x_3\}$ \\ \hline
+                $C^R(X)$ & $\{x_1\}$ & $\emptyset$ & $\{x_3\}$ & $\{x_1\}$ & $\{x_3\}$ & $\emptyset$ & $\emptyset$ \\ \hline
+        \end{tabular}
+    \end{table}
+\end{solution}
+
+\begin{problem}
+    Побудувати функцію вибору, яка породжена бінарним відношенням \[ R = \begin{pmatrix} 1 & 0 & 0 \\ 1 & 0 & 0 \\ 1 & 1 & 0 \end{pmatrix} \]
+\end{problem}
+
+\begin{solution}
+    Скористаємося визначенням: \[ \forall X \subseteq \Omega: \quad C^R(X) = \{ x \in X: \forall y \in X: y \bar R x \}.\]
+
+    При знаходженні $C^R(X)$ будемо дивитися на відповідну під-матрицю $R$ і шукати ті $x_i$ у стовпцях яких усі нулі, тобто не існує елементу що більший за них:
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|c|c|}
+            \hline
+            $X$ & $\{x_1\}$ & $\{x_2\}$ & $\{x_3\}$ & $\{x_1, x_2\}$ & $\{x_1, x_3\}$ & $\{x_2, x_3\}$ & $\{x_1, x_2, x_3\}$ \\ \hline
+            $C^R(X)$ & $\emptyset$ & $\{x_2\}$ & $\{x_3\}$ & $\{x_2\}$ & $\{x_3\}$ & $\{x_3\}$ & $\{x_3\}$ \\ \hline
+        \end{tabular}
+    \end{table}
+\end{solution}
+
+\newpage
+
+\begin{problem*}[класна]
+    Побудувати бінарне відношення, яке породжує задану функцію вибору, якщо таке існує:
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|c|c|}
+            \hline
+            $X$ & $\{x_1\}$ & $\{x_2\}$ & $\{x_3\}$ & $\{x_1, x_2\}$ & $\{x_1, x_3\}$ & $\{x_2, x_3\}$ & $\{x_1, x_2, x_3\}$ \\ \hline
+            $C^R(X)$ & $\{x_1\}$ & $\emptyset$ & $\{x_3\}$ & $\{x_1\}$ & $\{x_3\}$ & $\emptyset$ & $\{x_2\}$ \\ \hline
+        \end{tabular}
+    \end{table}
+\end{problem*}
+
+\begin{solution}
+    Існування бінарного відношення що породжує задану функцію вибору рівносильне нормальності відповідної функції вибору, яка, очевидно, не виконується. \\
+    
+    Зокрема, $x_2 \in C(\{x_1, x_2, x_3\})$, але $x_2 \notin C(\{x_2\})$, суперечить нормальності.
+\end{solution}
+
+\begin{problem}
+    Побудувати бінарне відношення, яке породжує задану функцію вибору, якщо таке існує:
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|c|c|}
+            \hline
+            $X$ & $\{x_1\}$ & $\{x_2\}$ & $\{x_3\}$ & $\{x_1, x_2\}$ & $\{x_1, x_3\}$ & $\{x_2, x_3\}$ & $\{x_1, x_2, x_3\}$ \\ \hline
+            $C^R(X)$ & $\emptyset$ & $\emptyset$ & $\{x_3\}$ & $\{x_2\}$ & $\{x_3\}$ & $\{x_3\}$ & $\{x_3\}$ \\ \hline
+        \end{tabular}
+    \end{table}
+\end{problem}
+
+\begin{solution}
+    % Скористаємося визначенням: \[ \forall X \subseteq \Omega: \quad C^R(X) = \{ x \in X: \forall y \in X: y \bar R x \}.\]
+    
+    % Будемо визначати $R$ знизу догори у розумінні потужності під-матриць які розглядаються:
+    % \begin{enumerate}
+    %     \item Розглядаючи $C(\{x_1\})$, $C(\{x_2\})$, і $C(\{x_3\})$, знаходимо, що $x_1 R x_1$, $x_2 R x_2$, але $x_3 \bar R x_3$, тобто матриця $R$ має наступний вигляд: \[ R = \begin{pmatrix} 1 & ? & ? \\ ? & 1 & ? \\ ? & ? & 0 \end{pmatrix}.\]
+    %     \item Розглядаючи $C(\{x_1, x_2\})$, $C(\{x_1, x_3\})$, і $C(\{x_2, x_3\})$, знаходимо, що $x_1 \bar R x_2$ (при цьому про $(x_2, x_1)$ нічого не знаємо), $x_1 \bar R x_3$ (при цьому про $(x_3, x_1)$ нічого не знаємо), $x_2 \bar R x_3$ (при цьому про $(x_3, x_2)$ нічого не знаємо), тобто матриця $R$ має наступний вигляд: \[ R = \begin{pmatrix} 1 & 0 & 0 \\ ? & 1 & 0 \\ ? & ? & 0 \end{pmatrix}.\]
+    %     \item 
+    Існування бінарного відношення що породжує задану функцію вибору рівносильне нормальності відповідної функції вибору, яка, очевидно, не виконується. \\
+        
+    Зокрема, $x_2 \in C(\{x_1, x_2\})$, але $x_2 \notin C(\{x_2\})$, суперечить нормальності.
+    % \end{enumerate}
+\end{solution}
+
+\newpage
+
+\begin{problem}
+    Побудувати ЛФФВ для заданої функції вибору: 
+    
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|c|c|}
+            \hline
+            $X$ & $\{x_1\}$ & $\{x_2\}$ & $\{x_3\}$ & $\{x_1, x_2\}$ & $\{x_1, x_3\}$ & $\{x_2, x_3\}$ & $\{x_1, x_2, x_3\}$ \\ \hline
+            $C^R(X)$ & $\emptyset$ & $\{x_2\}$ & $\{x_3\}$ & $\{x_2\}$ & $\emptyset$ & $\{x_3\}$ & $\{x_3\}$ \\ \hline
+        \end{tabular}
+    \end{table}
+\end{problem}
+
+\begin{solution}
+    Побудуємо $\beta(X)$ і $\beta(C(X))$ для всіх $X \subseteq \Omega$:
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|c|c|}
+            \hline 
+            $X$ & $C(X)$ & $\beta(X)$ & $\beta(C(X))$ \\ \hline
+            $\{x_1\}$ & $\emptyset$ & $(1, 0, 0)$ & $(0, 0, 0)$ \\
+            $\{x_2\}$ & $\{x_2\}$ & $(0, 1, 0)$ & $(0, 1, 0)$ \\
+            $\{x_3\}$ & $\{x_3\}$ & $(0, 0, 1)$ & $(0, 0, 1)$ \\
+            $\{x_1, x_2\}$ & $\{x_2\}$ & $(1, 1, 0)$ & $(0, 1, 0)$ \\
+            $\{x_1, x_3\}$ & $\emptyset$ & $(1, 0, 1)$ & $(0, 0, 0)$ \\
+            $\{x_2, x_3\}$ & $\{x_3\}$ & $(0, 1, 1)$ & $(0, 0, 1)$ \\
+            $\{x_1, x_2, x_3\}$ & $\{x_3\}$ & $(1, 1, 1)$ & $(0, 0, 1)$ \\ \hline
+        \end{tabular}
+    \end{table}
+    
+    Побудуємо $f_i$, де $i = 1, 2, 3$. Для цього виписуємо всі можливі значення $\vec \beta(X)$ де $\beta_i(X) = 1$ і беремо $f_i(\vec \beta) = \beta_i(C(X))$:
+    
+    \begin{table}[H]
+        \centering
+        \begin{tabular}[t]{|c|c|c|c|}
+            \hline
+            $\beta_1$ & $\beta_2$ & $\beta_3$ & $f_1$ \\ \hline
+            1 & 0 & 0 & 0 \\
+            1 & 0 & 1 & 0 \\
+            1 & 1 & 0 & 0 \\
+            1 & 1 & 1 & 0 \\ \hline
+        \end{tabular}
+        \hfill
+        \begin{tabular}[t]{|c|c|c|c|}
+            \hline
+            $\beta_1$ & $\beta_2$ & $\beta_3$ & $f_2$ \\ \hline
+            0 & 1 & 0 & 1 \\
+            0 & 1 & 1 & 0 \\
+            1 & 1 & 0 & 1 \\
+            1 & 1 & 1 & 0 \\ \hline
+        \end{tabular}
+        \hfill
+        \begin{tabular}[t]{|c|c|c|c|}
+            \hline
+            $\beta_1$ & $\beta_2$ & $\beta_3$ & $f_3$ \\ \hline
+            0 & 0 & 1 & 1 \\
+            0 & 1 & 1 & 1 \\
+            1 & 0 & 1 & 0 \\
+            1 & 1 & 1 & 1 \\ \hline
+        \end{tabular}
+    \end{table}
+    
+    Записуємо ДДНФ (а також стислу форму) для $f_i$:
+    \begin{align*}
+        f_1(\beta_2, \beta_3) &\equiv 0 \\
+        f_2(\beta_1, \beta_3) &= \bar \beta_1 \cdot \bar \beta_3 \lor \beta_1 \cdot \bar \beta_3 = \bar \beta_3 \\
+        f_3(\beta_1, \beta_2) &= \bar \beta_1 \cdot \bar \beta_2 \lor \bar \beta_1 \cdot \beta_2 \lor \beta_1 \cdot \beta_2 = \beta_1 \rightarrow \beta_2
+    \end{align*}
+\end{solution}
+
+\newpage
+
+\begin{problem}
+    Побудувати функцію вибору за заданою ЛФФВ: \[ f_1(\beta_2, \beta_3) = \bar \beta_2 \lor \beta_3, \quad f_2(\beta_1, \beta_3) = \beta_1 \cdot \bar \beta_3, \quad f_3(\beta_1, \beta_2) \equiv 1. \]
+\end{problem}
+
+\begin{solution}
+    Перш за все відновимо табличку істинності для $f_i$. Для цього виписуємо всі можливі значення $\vec \beta(X)$ де $\beta_i(X) = 1$ і дописуємо туди значення $f_i(\vec \beta)$:
+    
+    \begin{table}[H]
+        \centering
+        \begin{tabular}[t]{|c|c|c|c|}
+            \hline
+            $\beta_1$ & $\beta_2$ & $\beta_3$ & $f_1$ \\ \hline
+            1 & 0 & 0 & 1 \\
+            1 & 0 & 1 & 1 \\
+            1 & 1 & 0 & 0 \\
+            1 & 1 & 1 & 1 \\ \hline
+        \end{tabular}
+        \hfill
+        \begin{tabular}[t]{|c|c|c|c|}
+            \hline
+            $\beta_1$ & $\beta_2$ & $\beta_3$ & $f_2$ \\ \hline
+            0 & 1 & 0 & 0 \\
+            0 & 1 & 1 & 0 \\
+            1 & 1 & 0 & 1 \\
+            1 & 1 & 1 & 0 \\ \hline
+        \end{tabular}
+        \hfill
+        \begin{tabular}[t]{|c|c|c|c|}
+            \hline
+            $\beta_1$ & $\beta_2$ & $\beta_3$ & $f_3$ \\ \hline
+            0 & 0 & 1 & 1 \\
+            0 & 1 & 1 & 1 \\
+            1 & 0 & 1 & 1 \\
+            1 & 1 & 1 & 1 \\ \hline
+        \end{tabular}
+    \end{table}
+    
+    Відновлюємо відомі значення $\beta(C(X))$ за значеннями $f_i$:
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|c|c|}
+            \hline 
+            $X$ & $C(X)$ & $\beta(X)$ & $\beta(C(X))$ \\ \hline
+            $\{x_1\}$ & $\{x_1, ?\}$ & $(1, 0, 0)$ & $(1, ?, ?)$ \\
+            $\{x_2\}$ & $\{?\}$ & $(0, 1, 0)$ & $(?, 0, ?)$ \\
+            $\{x_3\}$ & $\{x_3, ?\}$ & $(0, 0, 1)$ & $(?, ?, 1)$ \\
+            $\{x_1, x_2\}$ & $\{x_2, ?\}$ & $(1, 1, 0)$ & $(0, 1, ?)$ \\
+            $\{x_1, x_3\}$ & $\{x_1, x_3, ?\}$ & $(1, 0, 1)$ & $(1, ?, 1)$ \\
+            $\{x_2, x_3\}$ & $\{x_3, ?\}$ & $(0, 1, 1)$ & $(?, 0, 1)$ \\
+            $\{x_1, x_2, x_3\}$ & $\{x_1, x_3, ?\}$ & $(1, 1, 1)$ & $(1, 0, 1)$ \\ \hline
+        \end{tabular}
+    \end{table}
+    
+    Зрозуміло, що решта (позначені зараз як $?$) значень $\beta(C(X))$ -- нулі, адже відповідні елементи $x_i$ просто не належать відповідним підмножинам $X_j$, тому маємо наступну функцію вибору:
+    
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|c|c|}
+            \hline
+            $X$ & $\{x_1\}$ & $\{x_2\}$ & $\{x_3\}$ & $\{x_1, x_2\}$ & $\{x_1, x_3\}$ & $\{x_2, x_3\}$ & $\{x_1, x_2, x_3\}$ \\ \hline
+            $C^R(X)$ & $\{x_1\}$ & $\emptyset$ & $\{x_3\}$ & $\{x_2\}$ & $\{x_1, x_3\}$ & $\{x_3\}$ & $\{x_1, x_3\}$ \\ \hline
+        \end{tabular}
+    \end{table}
+\end{solution}
+
+\newpage
