@@ -49,8 +49,8 @@ _У перспективі можливе також розміщення роз
 
 4. Тема №4: [pdf](homework/4.pdf), [web](homework/4.md)
 
-5. Тема №5: [pdf](homework/5.pdf), [web](homework/5.md)
+5. Тема №5: [jpeg](homework/5.jpeg), [web](homework/5.md)
 
-6. Тема №6: [pdf](homework/6.pdf), [web](homework/6.md)
+6. Тема №6: [jpeg-1](homework/6.1.jpeg), [jpeg-2](homework/6.2.jpeg), [web](homework/6.md)
 
 [Назад на головну](../README.md)
