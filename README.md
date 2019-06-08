@@ -46,3 +46,5 @@
 - [Питання](quest/README.md)
 
 - [Література](books/README.md)
+
+- [How to](how-to/README.md)
