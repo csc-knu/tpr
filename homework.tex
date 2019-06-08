@@ -1,0 +1,206 @@
+% cd ..\..\Users\NikitaSkybytskyi\Desktop\c3s2\tpr
+% pdflatex homework.tex && pdflatex homework.tex && cls && pdflatex homework.tex && del pdflatex homework.out, homework.log, homework.aux, homework.toc && start homework.pdf
+\input{univ.sty}
+
+\lhead{\texttt{ТПР::практика}}
+
+\begin{document}
+
+% \tableofcontents
+
+\section*{28 січня 2019 р.}
+
+\begin{problem}
+	Для кожного з наступних відношень на множині натуральних чисел опишіть впорядковані пари, що належать відношенням:
+	\begin{enumerate}
+		\item $R = \left\{ \left( x, y \right) \middle| x + y = 9 \right\}$;
+		\item $R = \left\{ \left( x, y \right) \middle| x + y < 7 \right\}$;
+		\item $R = \left\{ \left( x, y \right) \middle| y = x^2 \right\}$;
+		\item $R = \left\{ \left( x, y \right) \middle| 4 x = y^2 \right\}$.
+	\end{enumerate}
+\end{problem}
+
+\begin{solution}
+	\nothing
+	\begin{enumerate}
+		\item Спершу задамо це відношення через цикл: \[R = \left\{ \left( n, 9 - n \right), n = \overline{1..8} \right\}.\] 
+
+		Також випишемо всі пари які входять до цього відношення: \[ R = \left\{ \left( 1, 8 \right), \left( 2, 7 \right), \left( 3, 6 \right), \left( 4, 5 \right), \left( 5, 4 \right), \left( 6, 3 \right), \left( 7, 2 \right), \left( 8, 1 \right) \right\}. \]
+
+		\item Спершу задамо це відношення через цикли: \[R = \left\{ \left( n, k - n \right), n = \overline{1..k-1}, k = \overline{2..6} \right\}.\]
+
+		Також випишемо всі пари які входять до цього відношення: \begin{multline*} R = \left\{ \left( 1, 5 \right), \left( 1, 4 \right), \left( 1, 3 \right), \left( 1, 2 \right), \left( 1, 1 \right), \left( 2, 4 \right), \left( 2, 3 \right), \right. \\ \left. \left( 2, 2 \right), \left( 2, 1 \right), \left( 3, 3 \right), \left( 3, 2 \right), \left( 3, 1 \right), \left( 4, 2 \right), \left( 4, 1 \right), \left( 5, 1 \right) \right\}. \end{multline*}
+		
+		\item Спершу задамо це відношення словами: $R$ -- \emph{відношення пар натуральних чисел вигляду} \[ \left( \text{число}, \text{квадрат цього числа} \right). \]
+
+		Також випишемо пари які входять до цього відношення: \[ R = \left\{ \left( 1, 1 \right), \left( 2, 4 \right), \left( 3, 9 \right), \left( 4, 16 \right), \ldots \right\}. \]
+		
+		\item Спершу задамо це відношення словами: $R$ -- \emph{відношення пар натуральних чисел вигляду} \[ \left( \text{квадрат половини другого числа}, \text{парне число} \right). \]
+
+		Також випишемо пари які входять до цього відношення: \[ R = \left\{ \left( 1, 2 \right), \left( 4, 4 \right), \left(9 , 6 \right), \left(16 , 8 \right), \ldots \right\}. \]
+		
+	\end{enumerate}
+\end{solution}
+
+\newpage
+
+\begin{problem}
+	Яке відношення задається матрицею $A$? Побудуйте для нього граф.
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $A = \begin{pmatrix} 0 & 0 & 1 \\ 0 & 1 & 0 \\ 0 & 1 & 1 \end{pmatrix}$;
+			\item $A = \begin{pmatrix} 1 & 0 & 1 \\ 0 & 1 & 0 \\ 0 & 1 & 1 \end{pmatrix}$;
+			\item $A = \begin{pmatrix} 0 & 0 & 1 \\ 0 & 1 & 1 \\ 0 & 1 & 1 \end{pmatrix}$;
+			\item $A = \begin{pmatrix} 1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 1 & 1 \end{pmatrix}$;
+		\end{enumerate}
+	\end{multicols}
+\end{problem}
+
+\begin{solution}
+	Для зручності у цій задачі позначимо $\Omega = \left\{ x, y, z \right\}$. Тоді
+	\begin{enumerate}
+		\item Спершу випишемо всі пари які входять до цього відношення: \[R = \left\{ \left( x, z \right), \left( y, y \right), \left( z, y \right), \left( z, z \right) \right\}. \]
+		
+		Тепер наведемо його граф: 
+		\begin{figure}[H]
+			\centering
+			\begin{tikzpicture}[-latex, auto, state/.style={circle, top color=white, bottom color=processblue!20, draw, processblue, text=blue, minimum width=1cm}]
+				\node[state] (x) {$x$};
+				\node[coordinate] (w) [above of=x, node distance=2cm] {};
+				\node[state] (y) [left of=w, node distance=1.5cm] {$y$};
+				\node[state] (z) [right of=w, node distance=1.5cm] {$z$};
+
+				\path[->] (x) edge node {} (z);
+				\path[->] (y) edge [loop left] node[left] {} (y);
+				\path[->] (z) edge node {} (y);
+				\path[->] (z) edge [loop right] node[left] {} (z);
+			\end{tikzpicture}
+		\end{figure}
+
+		\item Спершу випишемо всі пари які входять до цього відношення: \[R = \left\{ \left( x, x \right), \left( x, z \right), \left( y, y \right), \left( z, y \right), \left( z, z \right) \right\}. \]
+
+		Тепер наведемо його граф: 
+		\begin{figure}[H]
+			\centering
+			\begin{tikzpicture}[-latex, auto, semithick, state/.style={circle, top color=white, bottom color=processblue!20, draw, processblue, text=blue, minimum width=1cm}]
+				\node[state] (x) {$x$};
+				\node[coordinate] (w) [above of=x, node distance=2cm] {};
+				\node[state] (y) [left of=w, node distance=1.5cm] {$y$};
+				\node[state] (z) [right of=w, node distance=1.5cm] {$z$};
+
+				\path[->] (x) edge node {} (z);
+				\path[->] (x) edge [loop below] node[left] {} (x);
+				\path[->] (y) edge [loop left] node[left] {} (y);
+				\path[->] (z) edge node {} (y);
+				\path[->] (z) edge [loop right] node[left] {} (z);
+			\end{tikzpicture}
+		\end{figure}		
+		
+		\item Спершу випишемо всі пари які входять до цього відношення: \[R = \left\{ \left( x, z \right), \left( y, y \right), \left( y, z \right), \left( z, y \right), \left( z, z \right) \right\}. \]
+		
+		Тепер наведемо його граф: 
+		\begin{figure}[H]
+			\centering
+			\begin{tikzpicture}[-latex, auto, state/.style={circle, top color=white, bottom color=processblue!20, draw, processblue, text=blue, minimum width=1cm}]
+				\node[state] (x) {$x$};
+				\node[coordinate] (w) [above of=x, node distance=2cm] {};
+				\node[state] (y) [left of=w, node distance=1.5cm] {$y$};
+				\node[state] (z) [right of=w, node distance=1.5cm] {$z$};
+
+				\path[->] (x) edge node {} (z);
+				\path[->] (y) edge [loop left] node[left] {} (y);
+				\path[<->] (z) edge node {} (y);
+				\path[->] (z) edge [loop right] node[left] {} (z);
+			\end{tikzpicture}
+		\end{figure}
+
+		\item Спершу випишемо всі пари які входять до цього відношення: \[R = \left\{ \left( x, x \right), \left( x, z \right), \left( y, y \right), \left( z, x \right), \left( z, y \right), \left( z, z \right) \right\}. \]
+
+		Тепер наведемо його граф: 
+		\begin{figure}[H]
+			\centering
+			\begin{tikzpicture}[-latex, auto, state/.style={circle, top color=white, bottom color=processblue!20, draw, processblue, text=blue, minimum width=1cm}]
+				\node[state] (x) {$x$};
+				\node[coordinate] (w) [above of=x, node distance=2cm] {};
+				\node[state] (y) [left of=w, node distance=1.5cm] {$y$};
+				\node[state] (z) [right of=w, node distance=1.5cm] {$z$};
+
+				\path[<->] (x) edge node {} (z);
+				\path[->] (x) edge [loop below] node[left] {} (x);
+				\path[->] (y) edge [loop left] node[left] {} (y);
+				\path[->] (z) edge node {} (y);
+				\path[->] (z) edge [loop right] node[left] {} (z);
+			\end{tikzpicture}
+		\end{figure}
+	\end{enumerate}
+\end{solution}
+
+\newpage
+
+\begin{problem}
+	Визначте, які з наступних відношень на множині людей рефлексивні, симетричні або транзитивні:
+	\begin{enumerate}
+		\item ``мати тих же самих батьків'';
+		\item ``бути братом'';
+		\item ``буту старше'' або ``бути молодше'';
+		\item ``бути знайомим'';
+		\item ``бути не вище'';
+	\end{enumerate}
+\end{problem}
+
+\begin{solution}
+	\nothing
+	\begin{enumerate}
+		\item Рефлексивне, симетричне, транзитивне, тобто відношення еквівалентності.
+		
+		\item Взагалі кажучи це відношення є композицією відношень\footnote{Тут відношення ``бути чоловіком'' -- унарне і застосовується до першого аргументу.} ``бути чоловіком (особою чоловічої статі)'' та ``мати спільних батьків'', на основі чого і  проводиться подальший його аналіз. \\
+
+		Або не рефлексивне (бо жінка не є своїм братом) або навіть антирефлексивне (якщо ми вважаємо що і чоловік не є своїм братом). \\
+
+		Не симетричне (дочка $X$ не є братом сина $X$ але син $X$ є братом дочки $X$), але і не антисиметрчине (бо існує $X$ такий що у $X$ існують два сини $Y$, $Z$, тоді $Y$ брат $Z$ і $Z$ брат $Y$). \\
+
+		Транзитивне, бо якщо $X$ брат $Y$ і $Y$ брат $Z$, то у них всіх спільні батьки, і при цьому $X$ чоловік (адже він брат $Y$).
+
+		\item Антирефлексивне, антисисетричне і транзитивне, тобто відношення строгого порядку.
+
+		\item Рефлексивне (бо людина знає\footnote{Хоча якщо пригадати філософів Древньої Греції які стверджували що сенс життя у тому, щоб ``пізнати себе'', то можна засумніватися у тому що всі люди себе знають.} саму себе). \\
+
+		Симетричне\footnote{Здебільшого саме так вважають у задачах математичних олімпіад, хоча і не завжди.}, бо якщо людина $X$ знає людину $Y$ то вони знайомі, а отже $Y$ знає $X$. \\
+
+		Взагалі кажучи не транзитивне, бо я знаю декана, декан знає ректора, але ректора я не знаю. 
+
+		\item Рефлексивне, антисиметричне і транзитивне, тобто відношення нестрогого (часткового) порядку.
+	\end{enumerate}
+\end{solution}
+
+\newpage
+
+\begin{problem}
+	Маємо множину $A = \left\{ 1, 2, 3, 4 \right\}$ і її розбиття на класи еквівалентності $\left\{ \left\{ 1, 2\right\}, \left\{ 3, 4 \right\} \right\}$. Задайте відношення еквівалентності $R$.
+\end{problem}
+
+\begin{solution}
+	Спершу випишемо всі пари які входять до цього відношення: \[R = \left\{ \left( 1, 1 \right), \left( 1, 2 \right), \left( 2, 1 \right), \left( 2, 2 \right), \left( 3, 3 \right), \left( 3, 4 \right), \left( 4, 3 \right), \left( 4, 4 \right) \right\}. \]
+
+	Тепер наведемо його граф: 
+		\begin{figure}[H]
+			\centering
+			\begin{tikzpicture}[-latex, auto, state/.style={circle, top color=white, bottom color=processblue!20, draw, processblue, text=blue, minimum width=1cm}]
+				\node[state] (x) {$1$};
+				\node[state] (y) [right of=x, node distance=1.5cm] {$2$};
+				\node[state] (z) [below of=x, node distance=1.5cm] {$3$};
+				\node[state] (w) [below of=y, node distance=1.5cm] {$4$};
+
+				\path[<->] (x) edge node {} (y);
+				\path[<->] (z) edge node {} (w);
+				\path[->] (x) edge [loop left] node[left] {} (x);
+				\path[->] (y) edge [loop right] node[left] {} (y);
+				\path[->] (z) edge [loop left] node[left] {} (z);
+				\path[->] (w) edge [loop right] node[left] {} (w);
+			\end{tikzpicture}
+		\end{figure}
+
+	Для повноти опису наведемо також його матрицю: \[ A = \begin{pmatrix} 1 & 1 & 0 & 0 \\ 1 & 1 & 0 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 1 & 1 \end{pmatrix}. \]
+\end{solution}
+
+\end{document}
