@@ -13,9 +13,9 @@
 
 ### Аудиторні заняття
 
-Наш курс містить сім аудиторних занять, тут розміщені умови задач до усіх них:
+Наш курс містить сім аудиторних занять, тут **будуть** розміщені умови задач до усіх них:
 
-1. Тема №1: [pdf](classwork/1.pdf), [web](classwork/1.md)
+<!-- 1. Тема №1: [pdf](classwork/1.pdf), [web](classwork/1.md)
 
 2. Тема №2: [pdf](classwork/2.pdf), [web](classwork/2.md)
 
@@ -27,7 +27,7 @@
 
 6. Тема №6: [pdf](classwork/6.pdf), [web](classwork/6.md)
 
-7. Тема №7: [pdf](classwork/7.pdf), [web](classwork/7.md)
+7. Тема №7: [pdf](classwork/7.pdf), [web](classwork/7.md) -->
 
 _У перспективі можливе також розміщення розв'язків частини аудиторних задач._
 
@@ -39,9 +39,9 @@ _У перспективі можливе також розміщення роз
 
 ### Домашні завдання
 
-Наш курс містить шість домашніх завдань, тут розміщені умови їх усіх:
+Наш курс містить шість домашніх завдань, тут **будуть** розміщені умови їх усіх:
 
-1. Тема №1: [pdf](homework/1.pdf), [web](homework/1.md)
+<!-- 1. Тема №1: [pdf](homework/1.pdf), [web](homework/1.md)
 
 2. Тема №2: [pdf](homework/2.pdf), [web](homework/2.md)
 
@@ -51,6 +51,6 @@ _У перспективі можливе також розміщення роз
 
 5. Тема №5: [jpeg](homework/5.jpeg), [web](homework/5.md)
 
-6. Тема №6: [jpeg-1](homework/6.1.jpeg), [jpeg-2](homework/6.2.jpeg), [web](homework/6.md)
+6. Тема №6: [jpeg-1](homework/6.1.jpeg), [jpeg-2](homework/6.2.jpeg), [web](homework/6.md) -->
 
 [Назад на головну](../README.md)
